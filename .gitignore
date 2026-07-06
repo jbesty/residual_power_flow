@@ -1,0 +1,10 @@
+*.jl.*.cov
+*.jl.cov
+*.jl.mem
+/Manifest*.toml
+.claude/settings.local.json
+.claude/scheduled_tasks.lock
+src/experimental/test_script.jl
+configs/output/
+sysimage/
+examples/*.csv

@@ -1,0 +1,23 @@
+[system]
+type = "matpower"
+name = "case9"
+K_DV = [130, 21, 13]
+
+[dataset]
+n_train = 10000
+n_test = 1000
+seed_train = 1234
+seed_test = 5678
+slack_indices = []
+
+[output]
+dir = "output/case9_rpf_infeasible"
+
+# Balanced prior-centred sampler, infeasible variant: larger offset half-widths
+# push OCs further off the balance manifold (more infeasibility) than the
+# feasible case9_rpf preset.
+[sampler]
+offset_p = 0.08
+offset_q = 0.04
+load_min_frac = 0.4
+load_max_frac = 1.0

@@ -1,0 +1,20 @@
+[system]
+type = "matpower"
+name = "case9"
+K_DV = [130, 21, 13]
+
+[dataset]
+n_train = 2000
+n_test = 1000
+seed_train = 1234
+seed_test = 5678
+
+[output]
+dir = "output/case9_wide"
+
+# Balanced prior-centred sampler, wide loading.
+[sampler]
+offset_p = 0.04
+offset_q = 0.02
+load_min_frac = 0.3
+load_max_frac = 1.0

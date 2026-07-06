@@ -1,0 +1,33 @@
+[system]
+type = "matpower"
+name = "case9"
+K_DV = [130, 21, 13]
+
+[dataset]
+n_train = 2000
+n_test = 1000
+seed_train = 1234
+seed_test = 5678
+slack_indices = [1, 3, 5]
+
+[output]
+dir = "output/case9_feasible"
+
+# Feasible / slack sampler (strategy = "feasible"). Recreates the old paper
+# operating-condition recipe that produced the committed AC-feasible case9
+# datasets: a uniform sweep over total apparent power S, per-load power factor,
+# and per-generator V setpoint, each solved to AC-feasibility (‖r‖ -> 0) with the
+# generator P controls acting as a distributed slack (PtO + ACFeasiblePF). The
+# ranges below match the RPF paper's case9_paper recipe (S in [1, 4]).
+#
+# SCOPE: naive uniform-sweep + slack — for small homogeneous systems (case9-like)
+# only; it is not capacity-aware and will reject heavily on large heterogeneous
+# grids. Use strategy = "balanced" for scalable, auto-calibrated generation.
+[sampler]
+strategy = "feasible"
+s_total_min = 1.0
+s_total_max = 4.0
+pf_min = 0.9
+pf_max = 1.0
+vset_min = 1.0
+vset_max = 1.05

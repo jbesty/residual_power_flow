@@ -1,0 +1,19 @@
+[system]
+type = "matpower"
+name = "case9"
+K_DV = [130, 21, 13]
+
+[dataset]
+n_train = 2000
+n_test = 1000
+seed_train = 1234
+seed_test = 5678
+
+[output]
+dir = "output/case9"
+
+# Balanced prior-centred sampler (legacy/development dataset). All keys
+# optional; the load range auto-calibrates to the carrying capacity.
+[sampler]
+offset_p = 0.04
+offset_q = 0.02
